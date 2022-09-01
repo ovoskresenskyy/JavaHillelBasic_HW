@@ -1,4 +1,4 @@
-package Poker;
+package _MyPoker;
 
 import java.util.Arrays;
 

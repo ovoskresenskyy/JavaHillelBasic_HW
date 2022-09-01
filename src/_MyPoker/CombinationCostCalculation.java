@@ -1,4 +1,4 @@
-package Poker;
+package _MyPoker;
 
 public class CombinationCostCalculation {
 

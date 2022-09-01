@@ -1,4 +1,4 @@
-package Poker;
+package _MyPoker;
 
 enum PlayerNames {
     THOR, LOKI, THANOS, JARVIS, HULK, MAGNETO
