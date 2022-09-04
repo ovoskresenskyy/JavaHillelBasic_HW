@@ -30,11 +30,9 @@ public class Drinks {
             }
         } while (choice != 9 && choice != 0);
 
-        if (choice == 9) { //Confirm
-            if (getMoney()) {
-                giveAwayDrinks();
-                System.out.println("Thanks! Come again!");
-            }
+        if (choice == 9 && getMoney()) { //Confirm
+            giveAwayDrinks();
+            System.out.println("Thanks! Come again!");
         }
     }
 
@@ -110,14 +108,14 @@ public class Drinks {
 
             System.out.println("| " + (i + 1) + " | "
                     + formatValue(drinks[i].name(), 15, false) + "| "
-                    + formatValue(price == 0 ? "" : String.valueOf(price), 2, true) + " |  "
-                    + formatValue(quantity == 0 ? "" : String.valueOf(quantity), 2, false) + " | "
-                    + formatValue(sum == 0 ? "" : String.valueOf(sum), 3, true) + " |");
+                    + formatValue(price, 2, true) + " |  "
+                    + formatValue(quantity, 2, false) + " | "
+                    + formatValue(sum, 3, true) + " |");
         }
 
         System.out.println("-----------------------------------------------");
-        System.out.println("                       Total: |  " + formatValue(totalQty == 0 ? "" : String.valueOf(totalQty), 2, false)
-                + " | " + formatValue(totalSum == 0 ? "" : String.valueOf(totalSum), 3, true) + " |");
+        System.out.println("                       Total: |  " + formatValue(totalQty, 2, false)
+                + " | " + formatValue(totalSum, 3, true) + " |");
         System.out.println("                              -----------------");
         System.out.println();
         System.out.println("-----------------------------------------------");
@@ -131,6 +129,10 @@ public class Drinks {
 
     private static String formatValue(String value, int length, boolean printCurrency) {
         return (value + "               ").substring(0, length) + (printCurrency ? " UAH" : "");
+    }
+
+    private static String formatValue(int value, int length, boolean printCurrency) {
+        return formatValue(value == 0 ? "" : "" + value, length, printCurrency);
     }
 
     static void MakeACoffee(int quantity) {
@@ -164,5 +166,3 @@ public class Drinks {
     }
 
 }
-
-
